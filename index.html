@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SimPersona — Frontend Dashboard</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <!-- Chart.js + PapaParse CDN -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script defer src="./assets/js/app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>SimPersona — Frontend Dashboard</h1>
+    
+
+    <nav class="nav">
+      <a href="#dashboard" class="active">Dashboard</a>
+      <a href="#personas">Personas</a>
+      <a href="#logs">Logs</a>
+      <a href="#interfaces">Interfaces</a>
+    </nav>
+
+    <section id="dashboard" class="view" style="display:none">
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Average Steps per Persona per Task</h3>
+          <canvas id="chart-steps" height="140"></canvas>
+        </div>
+        <div class="card">
+          <h3>Average Errors per Persona</h3>
+          <canvas id="chart-errors" height="140"></canvas>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Success Rate by Persona (%)</h3>
+        <canvas id="chart-success" height="120"></canvas>
+      </div>
+    </section>
+
+    <section id="personas" class="view" style="display:none">
+      <div class="card">
+        <h3>Persona Cards</h3>
+        <div class="persona-list" id="persona-cards"></div>
+      </div>
+    </section>
+
+    <section id="logs" class="view" style="display:none">
+      <div class="card">
+        <h3>Action Logs (sample)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Persona</th>
+              <th>Task</th>
+              <th>Steps</th>
+              <th>Errors</th>
+              <th>Success</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="logs-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="interfaces" class="view" style="display:none">
+      <div class="grid">
+        <div class="card">
+          <h3>Mock Interfaces</h3>
+          <p>Open simple HTML mockups used in simulations:</p>
+          <ul>
+            <li><a class="link" href="./data/interfaces/login.html" target="_blank">Login</a></li>
+            <li><a class="link" href="./data/interfaces/checkout.html" target="_blank">Checkout</a></li>
+            <li><a class="link" href="./data/interfaces/profile.html" target="_blank">Profile</a></li>
+          </ul>
+          <p class="small">These are static and semantic; suitable for screenshots and quick demos.</p>
+        </div>
+        <div class="card">
+          <h3>Files</h3>
+          <div class="kv"><div>Personas</div><div><code class="inline">data/simpersonas.json</code></div></div>
+          <div class="kv"><div>Logs</div><div><code class="inline">data/simpersona_actions.csv</code></div></div>
+          <div class="kv"><div>Cards</div><div><code class="inline">data/persona_cards/*.png</code></div></div>
+          <div class="kv"><div>Interfaces</div><div><code class="inline">data/interfaces/*.html</code></div></div>
+        </div>
+      </div>
+      <div class="footer small">Serve this folder with a simple static server to avoid CORS issues (see README below).</div>
+    </section>
+
+    
+  </div>
+</body>
+</html>
